@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-tablet.css" media="screen and (min-width: 600px) and (max-width: 1023px)">
+    <link rel="stylesheet" href="../assets/css/style-desktop.css" media="screen and (min-width: 1024px)">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">MAD - Meus Ativos Digitais</a></h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu-item"><a href="assets.html">Ativos</a></li>
+                <li class="menu-item menu-item-active"><a href="orders.html">Ordens</a></li>
+                <li class="menu-item"><a href="earnings.html">Proventos</a></li>
+                <li class="menu-item"><a href="events.html">Eventos</a></li>
+                <li class="menu-item"><a href="about.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="box box-mobile-action-bar">
+            <div>
+                <a class="btn btn-confirm w-100-sm" href="order-form.html">Cadastrar nova ordem</a>
+            </div>
+        </section>
+
+        <section class="box box-order-form">
+            <h2 class="box-title-1">Nova Ordem</h2>
+            <form action="#" method="post">
+                <div class="input-group">
+                    <label for="asset" class="input-requerid">Ativo</label>
+                    <select name="asset" id="asset" required>
+                        <option value="">Selecione um ativo</option>
+                        <option value="">ABEV3</option>
+                        <option value="">VIVT3</option>
+                        <option value="">RADL3</option>
+                        <option value="">KNRI11</option>
+                        <option value="">MXRF11</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="date" class="input-requerid">Data da Ordem</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="input-group">
+                    <fieldset>
+                        <legend class="input-requerid">Tipo de Ordem</legend>
+                        <input type="radio"id="orderTypeBuy" name="orderType" value="buy" checked required>
+                        <label for="orderTypeBuy" class="radio-label">Compra</label>
+                        <input type="radio" id="orderTypeSell" name="orderType" value="sell" required>
+                        <label for="orderTypeSell" class="radio-label">Venda</label>
+                    </fieldset>                    
+                </div>
+                
+                <div class="input-group">
+                    <label for="quantity" class="input-requerid">Quantidade</label>
+                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Ex: 100"required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="unitPrice" class="input-requerid">Preço</label>
+                    <input type="number" id="unitPrice" name="price" step="0.01" min="0.01" placeholder="Ex: 30,00" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="totalPrice" class="input-requerid">Custo Total</label>
+                    <input type="number" id="totalPrice" name="totalPrice" step="0.01" min="0.01" placeholder="Ex: 3000,00" required>
+                </div>
+
+                <div class="input-group">
+                    <fieldset>
+                        <legend>Nota de corretagem</legend>
+                        <input type="file" accept=".pdf" id="brokerNote" name="brokerNote">
+                    </fieldset>
+                </div>
+                
+                <div class="form-action-button">
+                    <button type="submit" class="btn btn-confirm">Inserir Ordem</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="box box-order-list">
+            <h2 class="box-title-1">Ordens Cadastradas</h2>
+            
+            <div class="table-container">                
+                <table>
+                    <thead class="thead-large">
+                        <tr>
+                            <th scope="col" class="column">Data</th>
+                            <th scope="col" class="column">Tipo</th>
+                            <th scope="col" class="column">Ativo</th>
+                            <th scope="col" class="column">Quantidade</th>
+                            <th scope="col" class="column">Preço Unitário</th>
+                            <th scope="col" class="column">Custo Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>17/06/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Compra
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>1000
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 140,00
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 1.000.001,69
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>10/05/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Venda
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>VIVT3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>50
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 45,00
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 2.250,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>02/04/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Compra
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>RADL3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>30
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 28,50
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 855,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>15/03/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Compra
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>10
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 150,00
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 1.500,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>28/02/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Venda
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>20
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 10,20
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 204,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>12/01/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Compra
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>200
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 9,80
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 1.960,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>05/12/2024
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Venda
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>VIVT3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>40
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 44,00
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 1.760,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>20/11/2024
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Compra
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>RADL3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>60
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 27,00
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 1.620,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>03/10/2024
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Venda
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>15
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 148,00
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 2.220,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>18/09/2024
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Compra
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>25
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 10,10
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 252,50
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Data</span>01/08/2024
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ordem</span>Venda
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Quantidade</span>80
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Preço Unitário</span><small>R$</small> 10,50
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Custo Total</span><small>R$</small> 840,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="6">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ordem</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ordem</a>
+                                <a class="btn btn-sm btn-download" href="">Baixar Nota de Corretagem</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer">        
+        <p class="dev-info">Desenvolvido por Evandro Moreira</p>
+        <p class="social-links">
+            <a href="https://www.linkedin.com/in/evandromef" target="_blank"><img src="../assets/img/linkedin-48.png" alt="linkedin--v1"></a>
+            <a href="https://www.linkedin.com/in/evandromef" target="_blank">LinkedIn</a>
+
+            <a href="https://github.com/evandromef" target="_blank" style="margin-left: 12px;"><img src="../assets/img/github-64.png" alt="github"></a>
+            <a href="https://github.com/evandromef" target="_blank">GitHub</a>
+        </p>
+        <p class="licence">
+            © 2025 MAD - Meus Ativos Digitais. <br>
+            Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
