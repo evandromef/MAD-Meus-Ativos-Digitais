@@ -15,8 +15,8 @@ MAD é uma aplicação web para gerenciamento de ativos digitais, permitindo o c
 
 - [] Cadastro de Ativo
 - [] Listagem de Ativos
-- [] Cadastro de Ordens
-- [] Listagem de Ordens
+- [x] Cadastro de Ordens
+- [x] Listagem de Ordens
 - [] Cadastro de Proventos Recebidos
 - [] Listagem de Proventos Recebidos
 - [] Cadastro de Eventos Acionários
