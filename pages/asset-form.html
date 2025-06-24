@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-tablet.css" media="screen and (min-width: 600px) and (max-width: 1023px)">
+    <link rel="stylesheet" href="../assets/css/style-desktop.css" media="screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="../assets/css/utils.css">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">MAD - Meus Ativos Digitais</a></h1>
+        <nav>
+            <ul class="menu">
+                <li class="menu-item menu-item-active"><a href="../pages/assets.html">Ativos</a></li>
+                <li class="menu-item"><a href="orders.html">Ordens</a></li>
+                <li class="menu-item"><a href="earnings.html">Proventos</a></li>
+                <li class="menu-item"><a href="events.html">Eventos</a></li>
+                <li class="menu-item"><a href="about.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="box box-asset-form" style="display: block;">
+            <h2 class="box-title-1">Novo Ativo</h2>
+
+            <details class="box-details mt-8">
+                <summary class="box-title-2">Dicas de Preenchimento</summary>
+                <ul class="box-info mt-4">
+                    <li><strong>Tipo de Ativo:</strong> Selecione se o ativo é uma Ação ou um Fundo de Investimento Imobiliário (FII).</li>
+                    <li><strong>Nome da Empresa:</strong> Insira o nome completo da empresa ou do fundo. Ex: "Petrobras", "Magazine Luiza", "XP Logística FII".</li>
+                    <li><strong>Ticker de Negociação:</strong> Utilize o código de negociação do ativo na bolsa de valores, em letras maiúsculas. Ex: "PETR4", "MGLU3", "XPLG11".</li>
+                </ul>
+                <p class="box-info mt-8">
+                    <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
+                </p>
+            </details>
+
+            <form action="#" method="post" class="mt-12" autocomplete="off">
+                <div class="input-group mb-12">
+                    <label for="assetName" class="input-required">Nome do Ativo</label>
+                    <input type="text" id="assetName" name="assetName" minlength="4" placeholder="Ex: Ambev, Maxi Renda" required>
+                </div>
+
+                <div class="input-group mb-12">
+                    <fieldset>
+                        <legend class="input-required">Tipo de Ativo</legend>
+                        <input type="radio" id="assetTypeStock" name="assetType" value="stock" required>
+                        <label for="assetTypeStock" class="radio-label">Ação</label>
+                        <br>
+                        <!-- REIF Real Estate Investment Fund -->
+                        <input type="radio" id="assetTypeReif" name="assetType" value="reif" required>
+                        <label for="assetTypeReif" class="radio-label">Fundo de Investimento Imobiliário</label>
+                    </fieldset>                    
+                </div>
+                
+                <div class="input-group mb-12">
+                    <label for="ticker" class="input-required">Ticker de Negociação</label>
+                    <input type="text" id="ticker" name="ticker" minlength="5" maxlength="6" placeholder="Ex: ABEV3, MXRF11"  required>
+                </div>
+                
+                <div class="form-action-button">
+                    <button type="submit" class="btn btn-confirm">Inserir ativo</button>
+                    <button type="reset" class="btn btn-cancel">Cancelar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer class="page-footer">
+        <p class="dev-info">Desenvolvido por Evandro Moreira</p>
+        <p class="social-links">
+            <a href="https://www.linkedin.com/in/evandromef" target="_blank" class="me-12">
+                <img src="../assets/img/linkedin-48.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/evandromef" target="_blank">
+                <img src="../assets/img/github-64.png" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+        </p>
+        <p class="licence">
+            © 2025 MAD - Meus Ativos Digitais. <br>
+            Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

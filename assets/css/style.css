@@ -14,7 +14,6 @@
 
 * {
     box-sizing: border-box;
-    -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -100,24 +99,26 @@ nav {
 }
 
 .box p,
-.box ul {
-    text-indent: 8px;
+.box ul,
+.box li {
+    text-indent: 12px;
     line-height: 1.4;
-    margin-bottom: 8px;
 }
 
 .box-title-1 {
     font-size: 1.3em;
     text-align: center;
-    padding-bottom: 4px;
+    line-height: 1.6;
 }
 
 .box-title-2 {
     font-size: 1.1em;
-    padding-bottom: 8px;
+    font-weight: bold;
+    line-height: 1.4;
 }
 
-.box-order-form {
+.box-order-form,
+.box-asset-form {
     display: none;
 }
 
@@ -141,7 +142,7 @@ fieldset {
     border: 1px solid var(--color-border);
     border-radius: 4px;
     -webkit-appearance: none;
-    appearance: inherit;
+    appearance: none;
 }
 
 form .btn {
@@ -194,11 +195,9 @@ input[type='file']::file-selector-button {
 .input-group {
     display: block;
     font-size: 1.1em;
-    /* padding: 4px; */
-    margin-bottom: 8px;
 }
 
-.input-requerid::after {
+.input-required::after {
     content: '*';
     color: var(--color-alert);
 }
@@ -234,7 +233,6 @@ input[type='file']::file-selector-button {
 }
 
 .btn-confirm:hover {
-    /* font-size: 1.05em; */
     text-decoration: underline;
     color: #fff;
     transition: all .1s;
@@ -250,7 +248,6 @@ input[type='file']::file-selector-button {
 
 .btn-cancel:hover {
     background-color: #F3F4F6;
-    /* font-size: 1.05em; */
     text-decoration: underline;
     color: var(--color-alert);
     border-color: var(--color-alert);
@@ -336,6 +333,9 @@ table thead {
 }
 
 .social-links a {
+    display: flex;
+    align-items: end;
+
     color: #4B5563;
 }
 
@@ -355,6 +355,7 @@ table thead {
     border-radius: 8px;
 }
 
+/* .thead-large is hidden by default for responsive design; shown in larger viewports via media queries if needed */
 .thead-large{
     display: none;
 }
@@ -397,8 +398,22 @@ table thead {
     display: none;
 }
 
-/* Utils */
-.w-100-sm {
-    width: 100%;
+.box-details {
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 8px;
+    padding: 12px;
 }
 
+.box-details .box-title-2 {
+    cursor: pointer;
+}
+
+.box-details * {
+    color: #1E40AF;
+}
+
+.box-info {
+    padding: 0;
+    margin: 0;
+}

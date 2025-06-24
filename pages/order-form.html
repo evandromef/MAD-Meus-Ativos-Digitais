@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style-tablet.css" media="screen and (min-width: 600px) and (max-width: 1023px)">
     <link rel="stylesheet" href="../assets/css/style-desktop.css" media="screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="../assets/css/utils.css">
 </head>
 <body>
     <header>
@@ -25,72 +26,90 @@
     <main class="container">
         <section class="box box-order-form" style="display: block;">
             <h2 class="box-title-1">Nova Ordem</h2>
-            <form action="#" method="post">
-                <div class="input-group">
-                    <label for="asset" class="input-requerid">Ativo</label>
+
+            <details class="box-details mt-8">
+                <summary class="box-title-2">Dicas de Preenchimento</summary>
+                <ul class="box-info mt-4">
+                    <li><strong>Ativo:</strong> Selecione o ativo (ação ou FII) para o qual a ordem está sendo cadastrada.</li>
+                    <li><strong>Data:</strong> Informe a data em que a ordem foi executada na bolsa.</li>
+                    <li><strong>Quantidade:</strong> Insira a quantidade de papéis comprados ou vendidos.</li>
+                    <li><strong>Valor Unitário:</strong> Preencha com o preço de cada papel na operação.</li>
+                    <li><strong>Valor Total:</strong> Este campo será calculado automaticamente com base na quantidade e valor unitário.</li>
+                    <li><strong>Nota de Corretagem:</strong> Faça o upload do arquivo PDF da nota de corretagem para registrar a operação.</li>
+                </ul>
+                <p class="box-info mt-8">
+                    <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
+                </p>
+            </details>
+
+            <form action="#" method="post" class="mt-12" autocomplete="off">
+                <div class="input-group mb-12">
+                    <label for="asset" class="input-required">Ativo</label>
                     <select name="asset" id="asset" required>
                         <option value="">Selecione um ativo</option>
-                        <option value="">ABEV3</option>
-                        <option value="">VIVT3</option>
-                        <option value="">RADL3</option>
-                        <option value="">KNRI11</option>
-                        <option value="">MXRF11</option>
+                        <option value="ABEV3">ABEV3</option>
+                        <option value="VIVT3">VIVT3</option>
+                        <option value="RADL3">RADL3</option>
+                        <option value="KNRI11">KNRI11</option>
+                        <option value="MXRF11">MXRF11</option>
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label for="date" class="input-requerid">Data da Ordem</label>
+                <div class="input-group mb-12">
+                    <label for="date" class="input-required">Data da Ordem</label>
                     <input type="date" id="date" name="date" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group mb-12">
                     <fieldset>
-                        <legend class="input-requerid">Tipo de Ordem</legend>
-                        <input type="radio"id="orderTypeBuy" name="orderType" value="buy" checked required>
+                        <legend class="input-required">Tipo de Ordem</legend>
+                        <input type="radio" id="orderTypeBuy" name="orderType" value="buy" checked required>
                         <label for="orderTypeBuy" class="radio-label">Compra</label>
                         <input type="radio" id="orderTypeSell" name="orderType" value="sell" required>
                         <label for="orderTypeSell" class="radio-label">Venda</label>
                     </fieldset>                    
                 </div>
                 
-                <div class="input-group">
-                    <label for="quantity" class="input-requerid">Quantidade</label>
-                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Ex: 100"required>
+                <div class="input-group mb-12">
+                    <label for="quantity" class="input-required">Quantidade</label>
+                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Ex: 100" required>
                 </div>
                 
-                <div class="input-group">
-                    <label for="unitPrice" class="input-requerid">Preço</label>
-                    <input type="number" id="unitPrice" name="price" step="0.01" min="0.01" placeholder="Ex: 30,00" required>
+                <div class="input-group mb-12">
+                    <label for="unitPrice" class="input-required">Preço</label>
+                    <input type="number" id="unitPrice" name="price" step="0.01" min="0.01" placeholder="Ex: 30.00" required>
                 </div>
 
-                <div class="input-group">
-                    <label for="totalPrice" class="input-requerid">Custo Total</label>
-                    <input type="number" id="totalPrice" name="totalPrice" step="0.01" min="0.01" placeholder="Ex: 3000,00" required>
+                <div class="input-group mb-12">
+                    <label for="totalPrice" class="input-required">Custo Total</label>
+                    <input type="number" id="totalPrice" name="totalPrice" step="0.01" min="0.01" placeholder="Ex: 3000.00" required>
                 </div>
 
-                <div class="input-group">
-                    <!-- <label for="brokerNote">Nota de corretagem:</label> -->
+                <div class="input-group mb-12">
                     <fieldset>
-                        <legend>Nota de corretagem</legend>
+                        <legend>Nota de corretagem (PDF)</legend>
                         <input type="file" accept=".pdf" id="brokerNote" name="brokerNote">
                     </fieldset>
                 </div>
                 
                 <div class="form-action-button">
                     <button type="submit" class="btn btn-confirm">Inserir Ordem</button>
-                    <button type="submit" class="btn btn-cancel">Cancelar</button>
+                    <button type="reset" class="btn btn-cancel">Cancelar</button>
                 </div>
             </form>
         </section>
     </main>
-    <footer class="page-footer">        
+    <footer class="page-footer">
         <p class="dev-info">Desenvolvido por Evandro Moreira</p>
         <p class="social-links">
-            <a href="https://www.linkedin.com/in/evandromef" target="_blank"><img src="../assets/img/linkedin-48.png" alt="linkedin--v1"></a>
-            <a href="https://www.linkedin.com/in/evandromef" target="_blank">LinkedIn</a>
-
-            <a href="https://github.com/evandromef" target="_blank" style="margin-left: 12px;"><img src="../assets/img/github-64.png" alt="github"></a>
-            <a href="https://github.com/evandromef" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/evandromef" target="_blank" class="me-12">
+                <img src="../assets/img/linkedin-48.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/evandromef" target="_blank">
+                <img src="../assets/img/github-64.png" alt="GitHub">
+                <span>GitHub</span>
+            </a>
         </p>
         <p class="licence">
             © 2025 MAD - Meus Ativos Digitais. <br>

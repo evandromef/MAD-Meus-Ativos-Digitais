@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style-tablet.css" media="screen and (min-width: 600px) and (max-width: 1023px)">
     <link rel="stylesheet" href="../assets/css/style-desktop.css" media="screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="../assets/css/utils.css">
 </head>
 <body>
     <header>
@@ -23,22 +24,320 @@
         </nav>
     </header>
     <main class="container">
-        <section>
-            <h2>Ativos</h2>
+
+        <section class="box box-asset-form">
+            <h2 class="box-title-1">Novo Ativo</h2>
+            <details class="box-details mt-8">
+                <summary class="box-title-2">Dicas de Preenchimento</summary>
+                <ul class="box-info mt-4">
+                    <li><strong>Tipo de Ativo:</strong> Selecione se o ativo é uma Ação ou um Fundo de Investimento Imobiliário (FII).</li>
+                    <li><strong>Nome da Empresa:</strong> Insira o nome completo da empresa ou do fundo. Ex: "Petrobras", "Magazine Luiza", "XP Logística FII".</li>
+                    <li><strong>Ticker de Negociação:</strong> Utilize o código de negociação do ativo na bolsa de valores, em letras maiúsculas. Ex: "PETR4", "MGLU3", "XPLG11".</li>
+                </ul>
+                <p class="box-info mt-8">
+                    <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
+                </p>
+            </details>
+            <form action="#" method="post" autocomplete="off" class="mt-12">
+                <div class="input-group mb-12">
+                    <label for="assetName" class="input-required">Nome do Ativo</label>
+                    <input type="text" id="assetName" name="assetName" minlength="4" placeholder="Ex: Ambev, Maxi Renda" required>
+                </div>
+
+                <div class="input-group mb-12">
+                    <fieldset>
+                        <legend class="input-required">Tipo de Ativo</legend>
+                        <input type="radio" id="assetTypeStock" name="assetType" value="stock" required>
+                        <label for="assetTypeStock" class="radio-label">Ação</label>
+                        <br>
+                        <!-- REIF Real Estate Investment Fund -->
+                        <input type="radio" id="assetTypeReif" name="assetType" value="reif">
+                        <label for="assetTypeReif" class="radio-label">Fundo de Investimento Imobiliário</label>
+                    </fieldset>
+                </div>
+
+                <div class="input-group mb-12">
+                    <label for="ticker" class="input-required">Ticker de Negociação</label>
+                    <input type="text" id="ticker" name="ticker" minlength="5" maxlength="6" placeholder="Ex: ABEV3, MXRF11"  required>
+                </div>
+
+                <div class="form-action-button">
+                    <button type="submit" class="btn btn-confirm">Inserir ativo</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="box box-asset-list">
+            <h2 class="box-title-1">Ativos Cadastrados</h2>
+            <p class="mt-4">
+                Abaixo estão listados os ativos que você cadastrou. Você pode editar ou apagar cada ativo individualmente.
+            </p>
+            <p><em>
+                <strong>Observação:</strong> A exclusão de um ativo não remove as ordens ou proventos associados a ele.
+            </em></p>
+            <div class="box-mobile-action-bar">
+                <a class="btn btn-confirm w-100-sm" href="asset-form.html">Cadastrar novo ativo</a>
+            </div>
+            <div class="table-container mt-12">
+                <table>
+                    <thead class="thead-large">
+                        <tr>
+                            <th scope="col" class="column">Ticker</th>
+                            <th scope="col" class="column">Tipo</th>
+                            <th scope="col" class="column">Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column" style="width: 100px;">
+                                <span class="column-small-title">Ticker</span>ABEV3
+                            </td>
+                            <td class="column" style="width: 100px;">
+                                <span class="column-small-title">Tipo de Ativo</span>Ação
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Ambev S.A.
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>ITUB4
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>Ação
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Itaú Unibanco Holding S.A.
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>BBDC4
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>Ação
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Banco Bradesco S.A.
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>FII
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Maxi Renda FII
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>HGLG11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>FII
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>CSHG Logística FII
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>TAEE11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>Ação
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Taesa S.A.
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>EGIE3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>Ação
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Engie Brasil Energia S.A.
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>FII
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Kinea Renda Imobiliária FII
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>BBAS3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>Ação
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Banco do Brasil S.A.
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ticker</span>VISC11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Ativo</span>FII
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Nome</span>Vinci Shopping Centers FII
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Ativo</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Ativo</a>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
         </section>
     </main>
-    <footer class="page-footer">        
+    <footer class="page-footer">
         <p class="dev-info">Desenvolvido por Evandro Moreira</p>
         <p class="social-links">
-            <a href="https://www.linkedin.com/in/evandromef" target="_blank"><img src="../assets/img/linkedin-48.png" alt="linkedin--v1"></a>
-            <a href="https://www.linkedin.com/in/evandromef" target="_blank">LinkedIn</a>
-
-            <a href="https://github.com/evandromef" target="_blank" style="margin-left: 12px;"><img src="../assets/img/github-64.png" alt="github"></a>
-            <a href="https://github.com/evandromef" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/evandromef" target="_blank" class="me-12">
+                <img src="../assets/img/linkedin-48.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/evandromef" target="_blank">
+                <img src="../assets/img/github-64.png" alt="GitHub">
+                <span>GitHub</span>
+            </a>
         </p>
         <p class="licence">
             © 2025 MAD - Meus Ativos Digitais. <br>
             Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>
