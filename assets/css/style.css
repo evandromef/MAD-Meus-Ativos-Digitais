@@ -118,7 +118,8 @@ nav {
 }
 
 .box-order-form,
-.box-asset-form {
+.box-asset-form,
+.box-earning-form {
     display: none;
 }
 

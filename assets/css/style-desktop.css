@@ -23,14 +23,16 @@
 }
 
 .box-order-list,
-.box-asset-list {
+.box-asset-list,
+.box-earning-list {
     display: block;
     min-width: 640px;
     max-width: 66%;
 }
 
 .box-order-form,
-.box-asset-form {
+.box-asset-form,
+.box-earning-form {
     display: block;
     width: 300px;
     height: fit-content;
@@ -59,8 +61,22 @@ table tr {
     overflow-x: auto;
 }
 
+/* Rows of Table Assets */
+.table-assets tr td:first-child,
+.table-assets tr td:nth-child(2){
+    width: 100px;
+}
+
+/* Rows of Table Earnings */
+.table-earnings tr td:first-child {
+    width: 100px;
+}
+.table-earnings tr td:nth-child(2),
+.table-earnings tr td:nth-child(3) {
+    width: 140px;
+}
+
 .thead-large{
-    /* display: table-header-group; */
     width: 100%;
     padding: 8px;
     text-transform: uppercase;

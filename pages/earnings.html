@@ -24,8 +24,369 @@
         </nav>
     </header>
     <main class="container">
-        <section>
-            <h2>Proventos</h2>
+
+        <section class="box box-earning-form">
+            <h2 class="box-title-1">Novo Provento</h2>
+
+            <details class="box-details mt-8">
+                <summary class="box-title-2">Dicas de Preenchimento</summary>
+                <ul class="box-info mt-4">
+                    <li><strong>Tipo de Provento:</strong> Selecione se é um dividendo ou JCP.</li>
+                    <li><strong>Data do Pagamento:</strong> Informe a data em que o provento foi pago.</li>
+                    <li><strong>Ativo:</strong> Escolha o ativo (ação ou FII) relacionado ao provento.</li>
+                </ul>
+                <p class="box-info mt-8">
+                    <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
+                </p>
+            </details>
+
+            <form action="#" method="post" class="mt-12" autocomplete="off">
+                <div class="input-group mb-12">
+                    <fieldset>
+                        <legend class="input-required">Tipo de Provento</legend>
+                        <input type="radio" id="earningTypeDividend" name="earningType" value="dividend" required checked>
+                        <label for="earningTypeDividend" class="radio-label">Dividendos</label>
+                        <br>
+                        <!-- Interest on Equity (IoE) -->
+                        <input type="radio" id="earningTypeIoe" name="earningType" value="ioe" required>
+                        <label for="earningTypeIoe" class="radio-label">JCP</label>
+                    </fieldset>                    
+                </div>
+
+                <div class="input-group mb-12">
+                    <label for="asset" class="input-required">Ativo</label>
+                    <select name="asset" id="asset" required>
+                        <option value="">Selecione um ativo</option>
+                        <option value="ABEV3">ABEV3</option>
+                        <option value="VIVT3">VIVT3</option>
+                        <option value="RADL3">RADL3</option>
+                        <option value="KNRI11">KNRI11</option>
+                        <option value="MXRF11">MXRF11</option>
+                    </select>
+                </div>
+                
+                <div class="input-group mb-12">
+                    <label for="date" class="input-required">Data do Pagamento</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="input-group mb-12">
+                    <label for="amount" class="input-required">Valor</label>
+                    <input type="number" id="amount" name="amount" step="0.01" min="0.01" placeholder="Ex: 30.00" required>
+                </div>
+
+                <div class="form-action-button">
+                    <button type="submit" class="btn btn-confirm">Inserir provento</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="box box-earning-list">
+            <h2 class="box-title-1">Proventos Cadastrados</h2>
+            <p class="mt-4">
+                Aqui estão listados todos os proventos cadastrados. Você pode editar ou apagar cada um deles.
+            </p>
+            <p class="box-mobile-action-bar">Para cadastrar um novo provento, clique no botão abaixo.
+                <a class="btn btn-confirm w-100-sm" href="earning-form.html">Cadastrar novo provento</a>
+            </p>
+            <div class="table-container mt-12">
+                <table class="table-earnings">
+                    <thead class="thead-large">
+                        <tr>
+                            <th scope="col" class="column">Tipo de Provento</th>
+                            <th scope="col" class="column">Ativo</th>
+                            <th scope="col" class="column">Data do Pagamento</th>
+                            <th scope="col" class="column">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>10/04/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>300.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>VIVT3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>JCP
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>15/05/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>120.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>RADL3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>20/06/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>80.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>05/07/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>50.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>JCP
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>12/08/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>60.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>10/09/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>200.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>VIVT3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>JCP
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>18/10/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>90.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>RADL3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>25/11/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>110.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>02/12/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>70.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>JCP
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>15/12/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>95.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Provento</span>Dividendos
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Pagamento</span>20/12/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Valor</span><small>R$</small>150.000,00
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Provento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Provento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Provento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
     <footer class="page-footer">
