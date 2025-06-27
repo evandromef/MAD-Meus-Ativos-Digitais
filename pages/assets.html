@@ -27,6 +27,7 @@
 
         <section class="box box-asset-form">
             <h2 class="box-title-1">Novo Ativo</h2>
+
             <details class="box-details mt-8">
                 <summary class="box-title-2">Dicas de Preenchimento</summary>
                 <ul class="box-info mt-4">
@@ -38,31 +39,35 @@
                     <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
                 </p>
             </details>
-            <form action="#" method="post" autocomplete="off" class="mt-12">
-                <div class="input-group mb-12">
-                    <label for="assetName" class="input-required">Nome do Ativo</label>
-                    <input type="text" id="assetName" name="assetName" minlength="4" placeholder="Ex: Ambev, Maxi Renda" required>
-                </div>
 
+            <form action="#" method="post" class="mt-12" autocomplete="off">
                 <div class="input-group mb-12">
-                    <fieldset>
+                    <fieldset title="Marque o tipo de ativo">
                         <legend class="input-required">Tipo de Ativo</legend>
-                        <input type="radio" id="assetTypeStock" name="assetType" value="stock" required>
+                        <input type="radio" id="assetTypeStock" name="assetType" value="stock" required checked>
                         <label for="assetTypeStock" class="radio-label">Ação</label>
                         <br>
                         <!-- REIF Real Estate Investment Fund -->
-                        <input type="radio" id="assetTypeReif" name="assetType" value="reif">
+                        <input type="radio" id="assetTypeReif" name="assetType" value="reif" required>
                         <label for="assetTypeReif" class="radio-label">Fundo de Investimento Imobiliário</label>
-                    </fieldset>
+                    </fieldset>                    
                 </div>
 
                 <div class="input-group mb-12">
-                    <label for="ticker" class="input-required">Ticker de Negociação</label>
-                    <input type="text" id="ticker" name="ticker" minlength="5" maxlength="6" placeholder="Ex: ABEV3, MXRF11"  required>
+                    <label for="assetName" class="input-required">Nome do Ativo</label>
+                    <input type="text" id="assetName" name="assetName" minlength="4" placeholder="Ex: Ambev, Maxi Renda" title="Informe o nome do ativo" required>
+                    <p class="error-message">Nome do ativo inválido.</p>
                 </div>
-
+                
+                <div class="input-group mb-12">
+                    <label for="ticker" class="input-required">Ticker de Negociação</label>
+                    <input type="text" id="ticker" name="ticker" minlength="5" maxlength="6" pattern="^[A-Za-z]{4}(3|4|11)$" placeholder="Ex: ABEV3, MXRF11" title="Informe o ticker de negociação" style="text-transform: uppercase;" required>
+                    <p class="error-message">Ticker inválido.</p>
+                </div>
+                
                 <div class="form-action-button">
                     <button type="submit" class="btn btn-confirm">Inserir ativo</button>
+                    <button type="reset" class="btn btn-cancel">Cancelar</button>
                 </div>
             </form>
         </section>
@@ -96,7 +101,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>Ação
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Ambev S.A.
                             </td>
                             <td class="column column-actions">
@@ -119,7 +124,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>Ação
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Itaú Unibanco Holding S.A.
                             </td>
                             <td class="column column-actions">
@@ -142,7 +147,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>Ação
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Banco Bradesco S.A.
                             </td>
                             <td class="column column-actions">
@@ -165,7 +170,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>FII
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Maxi Renda FII
                             </td>
                             <td class="column column-actions">
@@ -188,7 +193,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>FII
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>CSHG Logística FII
                             </td>
                             <td class="column column-actions">
@@ -211,7 +216,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>Ação
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Taesa S.A.
                             </td>
                             <td class="column column-actions">
@@ -234,7 +239,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>Ação
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Engie Brasil Energia S.A.
                             </td>
                             <td class="column column-actions">
@@ -257,7 +262,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>FII
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Kinea Renda Imobiliária FII
                             </td>
                             <td class="column column-actions">
@@ -280,7 +285,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>Ação
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Banco do Brasil S.A.
                             </td>
                             <td class="column column-actions">
@@ -303,7 +308,7 @@
                             <td class="column">
                                 <span class="column-small-title">Tipo de Ativo</span>FII
                             </td>
-                            <td class="column">
+                            <td class="column w-100-sm">
                                 <span class="column-small-title">Nome</span>Vinci Shopping Centers FII
                             </td>
                             <td class="column column-actions">

@@ -24,8 +24,373 @@
         </nav>
     </header>
     <main class="container">
-        <section>
-            <h2>Eventos</h2>
+        <section class="box box-event-form">
+            <h2 class="box-title-1">Novo Evento</h2>
+
+            <details class="box-details mt-8">
+                <summary class="box-title-2">Dicas de Preenchimento</summary>
+                <ul class="box-info mt-4">
+                    <li><strong>Tipo de Evento:</strong> Selecione se o evento é um grupamento ou desdobramento.</li>
+                    <li><strong>Ativo:</strong> Escolha o ativo (ação ou FII) relacionado ao evento.</li>
+                    <li><strong>Data do Evento:</strong> Informe a data em que o evento ocorreu.</li>
+                    <li><strong>Proporção:</strong> Preencha com a proporção. Ex: "10:1" para um grupamento de 10 ações para 1.</li>
+                </ul>
+                <p class="box-info mt-8">
+                    <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
+                </p>
+            </details>
+
+            <form action="#" method="post" class="mt-12" autocomplete="off">
+                <div class="input-group mb-12">
+                    <fieldset title="Marque o tipo de evento">
+                        <legend class="input-required">Tipo de Evento</legend>
+                        <input type="radio" id="eventTypeInplit" name="eventType" value="inplit" required checked>
+                        <label for="eventTypeInplit" class="radio-label">Grupamento</label>
+                        <br>
+                        <input type="radio" id="assetTypeSplit" name="eventType" value="split" required>
+                        <label for="assetTypeSplit" class="radio-label">Desdobramento</label>
+                    </fieldset>                    
+                </div>
+
+                <div class="input-group mb-12">
+                    <label for="asset" class="input-required">Ativo</label>
+                    <select name="asset" id="asset" title="Selecione o ativo" required>
+                        <option value="">Selecione um ativo</option>
+                        <option value="ABEV3">ABEV3</option>
+                        <option value="VIVT3">VIVT3</option>
+                        <option value="RADL3">RADL3</option>
+                        <option value="KNRI11">KNRI11</option>
+                        <option value="MXRF11">MXRF11</option>
+                    </select>
+                    <p class="error-message">Selecione um ativo válido.</p>
+                </div>
+                
+                <div class="input-group mb-12">
+                    <label for="date" class="input-required">Data do Evento (dd/mm/aaaa)</label>
+                    <input type="date" id="date" name="date" title="Informe a data do evento" required>
+                    <p class="error-message">Data do evento inválida.</p>
+                </div>
+
+                <div class="input-group mb-12">
+                    <label for="amount" class="input-required">Proporção (ddd:ddd)</label>
+                    <input type="text" id="ratio" name="ratio" pattern="^\d{1,4}:\d{1,4}$" placeholder="Ex: 10:1" title="Informe a proporção" required>
+                    <p class="error-message">Proporção inválida.</p>
+                </div>
+
+                <div class="form-action-button">
+                    <button type="submit" class="btn btn-confirm">Inserir evento</button>
+                    <button type="reset" class="btn btn-cancel">Cancelar</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="box box-event-list">
+            <h2 class="box-title-1">Eventos Cadastrados</h2>
+            <p class="mt-4">
+                Aqui estão listados todos os eventos cadastrados. Você pode editar ou apagar cada um deles.
+            </p>
+            <p class="box-mobile-action-bar">Para cadastrar um novo evento, clique no botão abaixo.
+                <a class="btn btn-confirm w-100-sm" href="event-form.html">Cadastrar novo evento</a>
+            </p>
+            <div class="table-container mt-12">
+                <table class="table-events">
+                    <thead class="thead-large">
+                        <tr>
+                            <th scope="col" class="column">Ativo</th>
+                            <th scope="col" class="column">Tipo de Evento</th>
+                            <th scope="col" class="column">Data do Evento</th>
+                            <th scope="col" class="column">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Desdobramento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>10/04/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>10:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>VIVT3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Grupamento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>15/05/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>5:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>RADL3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Desdobramento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>20/06/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>3:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Grupamento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>01/07/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>2:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Desdobramento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>12/08/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>4:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Grupamento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>25/09/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>8:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>VIVT3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Desdobramento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>10/10/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>6:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>RADL3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Grupamento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>18/11/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>7:2
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>KNRI11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Desdobramento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>22/12/2025
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>9:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>MXRF11
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Grupamento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>05/01/2026
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>12:5
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="row-lg">
+                        <tr class="row">
+                            <td class="column">
+                                <span class="column-small-title">Ativo</span>ABEV3
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Tipo de Evento</span>Desdobramento
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Data do Evento</span>15/02/2026
+                            </td>
+                            <td class="column">
+                                <span class="column-small-title">Proporção</span>2:1
+                            </td>
+                            <td class="column column-actions">
+                                <a class="btn btn-sm btn-edit" href="#">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="#">Apagar Evento</a>
+                            </td>
+                        </tr>
+                        <tr class="row row-actions">
+                            <td colspan="4">
+                                <a class="btn btn-sm btn-edit" href="">Editar Evento</a>
+                                <a class="btn btn-sm btn-delete" href="">Apagar Evento</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
         </section>
     </main>
     <footer class="page-footer">

@@ -7,6 +7,7 @@
     --color-gray: #374151;
     --color-confirm: #1D4ED8;
     --color-alert: #EF4444;
+    --color-valid: #10B981;
     --color-bg: #2563EB;
     --color-border: #37415136;
     --color-item-selected: #9CC2E5;
@@ -119,7 +120,8 @@ nav {
 
 .box-order-form,
 .box-asset-form,
-.box-earning-form {
+.box-earning-form,
+.box-event-form {
     display: none;
 }
 
@@ -144,6 +146,31 @@ fieldset {
     border-radius: 4px;
     -webkit-appearance: none;
     appearance: none;
+}
+
+input:required:valid,
+select:required:valid,
+fieldset:has(input:required:valid) {
+    border: 2px solid var(--color-valid);
+} 
+
+input:user-invalid,
+select:user-invalid,
+fieldset:user-invalid {    
+    border: 2px solid var(--color-alert);
+}
+
+.error-message {
+    display: none;
+}
+
+input:user-invalid ~ .error-message,
+select:user-invalid ~ .error-message,
+fieldset:user-invalid ~ .error-message {
+    display: block;
+    color: var(--color-alert);
+    font-size: 0.9em;
+    margin-top: 4px;
 }
 
 form .btn {

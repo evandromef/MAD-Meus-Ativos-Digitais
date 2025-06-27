@@ -43,20 +43,20 @@
 
             <form action="#" method="post" class="mt-12" autocomplete="off">
                 <div class="input-group mb-12">
-                    <fieldset>
+                    <fieldset title="Marque o tipo de provento">
                         <legend class="input-required">Tipo de Provento</legend>
                         <input type="radio" id="earningTypeDividend" name="earningType" value="dividend" required checked>
                         <label for="earningTypeDividend" class="radio-label">Dividendos</label>
                         <br>
                         <!-- Interest on Equity (IoE) -->
-                        <input type="radio" id="earningTypeIoe" name="earningType" value="ioe" required>
-                        <label for="earningTypeIoe" class="radio-label">JCP</label>
+                        <input type="radio" id="assetTypeIoe" name="earningType" value="ioe" required>
+                        <label for="assetTypeIoe" class="radio-label">JCP (Juros sobre Capital Próprio)</label>
                     </fieldset>                    
                 </div>
 
                 <div class="input-group mb-12">
                     <label for="asset" class="input-required">Ativo</label>
-                    <select name="asset" id="asset" required>
+                    <select name="asset" id="asset" title="Selecione um ativo" required>
                         <option value="">Selecione um ativo</option>
                         <option value="ABEV3">ABEV3</option>
                         <option value="VIVT3">VIVT3</option>
@@ -64,20 +64,24 @@
                         <option value="KNRI11">KNRI11</option>
                         <option value="MXRF11">MXRF11</option>
                     </select>
+                    <p class="error-message">Selecione um ativo válido.</p>
                 </div>
                 
                 <div class="input-group mb-12">
                     <label for="date" class="input-required">Data do Pagamento</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" name="date" title="Selecione a data do pagamento" required>
+                    <p class="error-message">Data do pagamento inválida.</p>
                 </div>
 
                 <div class="input-group mb-12">
                     <label for="amount" class="input-required">Valor</label>
-                    <input type="number" id="amount" name="amount" step="0.01" min="0.01" placeholder="Ex: 30.00" required>
+                    <input type="number" id="amount" name="amount" step="0.01" min="0.01" placeholder="Ex: 30.00" title="Informe o valor do provento" required>
+                    <p class="error-message">Valor inválido.</p>
                 </div>
 
                 <div class="form-action-button">
                     <button type="submit" class="btn btn-confirm">Inserir provento</button>
+                    <button type="reset" class="btn btn-cancel">Cancelar</button>
                 </div>
             </form>
         </section>
@@ -94,8 +98,8 @@
                 <table class="table-earnings">
                     <thead class="thead-large">
                         <tr>
-                            <th scope="col" class="column">Tipo de Provento</th>
                             <th scope="col" class="column">Ativo</th>
+                            <th scope="col" class="column">Tipo de Provento</th>
                             <th scope="col" class="column">Data do Pagamento</th>
                             <th scope="col" class="column">Valor</th>
                         </tr>

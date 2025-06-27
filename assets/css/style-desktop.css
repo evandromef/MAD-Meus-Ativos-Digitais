@@ -24,7 +24,8 @@
 
 .box-order-list,
 .box-asset-list,
-.box-earning-list {
+.box-earning-list,
+.box-event-list {
     display: block;
     min-width: 640px;
     max-width: 66%;
@@ -32,7 +33,8 @@
 
 .box-order-form,
 .box-asset-form,
-.box-earning-form {
+.box-earning-form,
+.box-event-form {
     display: block;
     width: 300px;
     height: fit-content;

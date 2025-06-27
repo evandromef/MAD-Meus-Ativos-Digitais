@@ -43,3 +43,9 @@
 .me-12 {
     margin-right: 12px;
 }
+
+@media screen and (min-width: 1024px) {
+    .w-100-sm {
+        width: unset;
+    }
+}

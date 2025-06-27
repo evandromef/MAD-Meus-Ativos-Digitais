@@ -41,12 +41,7 @@
 
             <form action="#" method="post" class="mt-12" autocomplete="off">
                 <div class="input-group mb-12">
-                    <label for="assetName" class="input-required">Nome do Ativo</label>
-                    <input type="text" id="assetName" name="assetName" minlength="4" placeholder="Ex: Ambev, Maxi Renda" required>
-                </div>
-
-                <div class="input-group mb-12">
-                    <fieldset>
+                    <fieldset title="Marque o tipo de ativo">
                         <legend class="input-required">Tipo de Ativo</legend>
                         <input type="radio" id="assetTypeStock" name="assetType" value="stock" required checked>
                         <label for="assetTypeStock" class="radio-label">Ação</label>
@@ -56,10 +51,17 @@
                         <label for="assetTypeReif" class="radio-label">Fundo de Investimento Imobiliário</label>
                     </fieldset>                    
                 </div>
+
+                <div class="input-group mb-12">
+                    <label for="assetName" class="input-required">Nome do Ativo</label>
+                    <input type="text" id="assetName" name="assetName" minlength="4" placeholder="Ex: Ambev, Maxi Renda" title="Informe o nome do ativo" required>
+                    <p class="error-message">Nome do ativo inválido.</p>
+                </div>
                 
                 <div class="input-group mb-12">
                     <label for="ticker" class="input-required">Ticker de Negociação</label>
-                    <input type="text" id="ticker" name="ticker" minlength="5" maxlength="6" placeholder="Ex: ABEV3, MXRF11"  required>
+                    <input type="text" id="ticker" name="ticker" minlength="5" maxlength="6" pattern="^[A-Za-z]{4}(3|4|11)$" placeholder="Ex: ABEV3, MXRF11" title="Informe o ticker de negociação" style="text-transform: uppercase;" required>
+                    <p class="error-message">Ticker inválido.</p>
                 </div>
                 
                 <div class="form-action-button">

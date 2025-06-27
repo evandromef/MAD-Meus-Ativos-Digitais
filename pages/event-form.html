@@ -17,23 +17,23 @@
             <ul class="menu">
                 <li class="menu-item"><a href="../pages/assets.html">Ativos</a></li>
                 <li class="menu-item"><a href="orders.html">Ordens</a></li>
-                <li class="menu-item menu-item-active"><a href="earnings.html">Proventos</a></li>
-                <li class="menu-item"><a href="events.html">Eventos</a></li>
+                <li class="menu-item"><a href="earnings.html">Proventos</a></li>
+                <li class="menu-item menu-item-active"><a href="events.html">Eventos</a></li>
                 <li class="menu-item"><a href="about.html">Sobre</a></li>
             </ul>
         </nav>
     </header>
     <main class="container">
-        <section class="box box-earning-form" style="display: block;">
-            <h2 class="box-title-1">Novo Provento</h2>
+        <section class="box box-event-form" style="display: block;">
+            <h2 class="box-title-1">Novo Evento</h2>
 
             <details class="box-details mt-8">
                 <summary class="box-title-2">Dicas de Preenchimento</summary>
                 <ul class="box-info mt-4">
-                    <li><strong>Tipo de Provento:</strong> Selecione se é um dividendo ou JCP (Juros sobre Capital Próprio).</li>
-                    <li><strong>Ativo:</strong> Escolha o ativo (ação ou FII) relacionado ao provento.</li>
-                    <li><strong>Data do Pagamento:</strong> Informe a data em que o provento foi pago.</li>
-                    <li><strong>Valor:</strong> Insira o valor do provento recebido (ex: 30.00).</li>
+                    <li><strong>Tipo de Evento:</strong> Selecione se o evento é um grupamento ou desdobramento.</li>
+                    <li><strong>Ativo:</strong> Escolha o ativo (ação ou FII) relacionado ao evento.</li>
+                    <li><strong>Data do Evento:</strong> Informe a data em que o evento ocorreu.</li>
+                    <li><strong>Proporção:</strong> Preencha com a proporção. Ex: "10:1" para um grupamento de 10 ações para 1.</li>
                 </ul>
                 <p class="box-info mt-8">
                     <em>Todos os campos marcados com <strong class="c-red">*</strong> são obrigatórios.</em>
@@ -42,20 +42,19 @@
 
             <form action="#" method="post" class="mt-12" autocomplete="off">
                 <div class="input-group mb-12">
-                    <fieldset title="Marque o tipo de provento">
-                        <legend class="input-required">Tipo de Provento</legend>
-                        <input type="radio" id="earningTypeDividend" name="earningType" value="dividend" required checked>
-                        <label for="earningTypeDividend" class="radio-label">Dividendos</label>
+                    <fieldset title="Marque o tipo de evento">
+                        <legend class="input-required">Tipo de Evento</legend>
+                        <input type="radio" id="eventTypeInplit" name="eventType" value="inplit" required checked>
+                        <label for="eventTypeInplit" class="radio-label">Grupamento</label>
                         <br>
-                        <!-- Interest on Equity (IoE) -->
-                        <input type="radio" id="assetTypeIoe" name="earningType" value="ioe" required>
-                        <label for="assetTypeIoe" class="radio-label">JCP (Juros sobre Capital Próprio)</label>
+                        <input type="radio" id="assetTypeSplit" name="eventType" value="split" required>
+                        <label for="assetTypeSplit" class="radio-label">Desdobramento</label>
                     </fieldset>                    
                 </div>
 
                 <div class="input-group mb-12">
                     <label for="asset" class="input-required">Ativo</label>
-                    <select name="asset" id="asset" title="Selecione um ativo" required>
+                    <select name="asset" id="asset" title="Selecione o ativo" required>
                         <option value="">Selecione um ativo</option>
                         <option value="ABEV3">ABEV3</option>
                         <option value="VIVT3">VIVT3</option>
@@ -67,19 +66,19 @@
                 </div>
                 
                 <div class="input-group mb-12">
-                    <label for="date" class="input-required">Data do Pagamento</label>
-                    <input type="date" id="date" name="date" title="Selecione a data do pagamento" required>
-                    <p class="error-message">Data do pagamento inválida.</p>
+                    <label for="date" class="input-required">Data do Evento (dd/mm/aaaa)</label>
+                    <input type="date" id="date" name="date" title="Informe a data do evento" required>
+                    <p class="error-message">Data do evento inválida.</p>
                 </div>
 
                 <div class="input-group mb-12">
-                    <label for="amount" class="input-required">Valor</label>
-                    <input type="number" id="amount" name="amount" step="0.01" min="0.01" placeholder="Ex: 30.00" title="Informe o valor do provento" required>
-                    <p class="error-message">Valor inválido.</p>
+                    <label for="amount" class="input-required">Proporção (ddd:ddd)</label>
+                    <input type="text" id="ratio" name="ratio" pattern="^\d{1,4}:\d{1,4}$" placeholder="Ex: 10:1" title="Informe a proporção" required>
+                    <p class="error-message">Proporção inválida.</p>
                 </div>
 
                 <div class="form-action-button">
-                    <button type="submit" class="btn btn-confirm">Inserir provento</button>
+                    <button type="submit" class="btn btn-confirm">Inserir evento</button>
                     <button type="reset" class="btn btn-cancel">Cancelar</button>
                 </div>
             </form>

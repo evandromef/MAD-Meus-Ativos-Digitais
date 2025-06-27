@@ -30,11 +30,12 @@
             <details class="box-details mt-8">
                 <summary class="box-title-2">Dicas de Preenchimento</summary>
                 <ul class="box-info mt-4">
+                    <li><strong>Tipo de Ordem:</strong> Selecione se a ordem é de compra ou venda.</li>
                     <li><strong>Ativo:</strong> Selecione o ativo (ação ou FII) para o qual a ordem está sendo cadastrada.</li>
-                    <li><strong>Data:</strong> Informe a data em que a ordem foi executada na bolsa.</li>
+                    <li><strong>Data da Ordem:</strong> Informe a data em que a ordem foi executada na bolsa.</li>
                     <li><strong>Quantidade:</strong> Insira a quantidade de papéis comprados ou vendidos.</li>
-                    <li><strong>Valor Unitário:</strong> Preencha com o preço de cada papel na operação.</li>
-                    <li><strong>Valor Total:</strong> Este campo será calculado automaticamente com base na quantidade e valor unitário.</li>
+                    <li><strong>Preço:</strong> Preencha com o preço de cada papel na operação.</li>
+                    <li><strong>Custo Total:</strong> Este campo será calculado automaticamente com base na quantidade e valor unitário.</li>
                     <li><strong>Nota de Corretagem:</strong> Faça o upload do arquivo PDF da nota de corretagem para registrar a operação.</li>
                 </ul>
                 <p class="box-info mt-8">
@@ -43,25 +44,9 @@
             </details>
 
             <form action="#" method="post" class="mt-12" autocomplete="off">
-                <div class="input-group mb-12">
-                    <label for="asset" class="input-required">Ativo</label>
-                    <select name="asset" id="asset" required>
-                        <option value="">Selecione um ativo</option>
-                        <option value="ABEV3">ABEV3</option>
-                        <option value="VIVT3">VIVT3</option>
-                        <option value="RADL3">RADL3</option>
-                        <option value="KNRI11">KNRI11</option>
-                        <option value="MXRF11">MXRF11</option>
-                    </select>
-                </div>
 
                 <div class="input-group mb-12">
-                    <label for="date" class="input-required">Data da Ordem</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-
-                <div class="input-group mb-12">
-                    <fieldset>
+                    <fieldset title="Marque o tipo de ordem">
                         <legend class="input-required">Tipo de Ordem</legend>
                         <input type="radio" id="orderTypeBuy" name="orderType" value="buy" checked required>
                         <label for="orderTypeBuy" class="radio-label">Compra</label>
@@ -69,20 +54,42 @@
                         <label for="orderTypeSell" class="radio-label">Venda</label>
                     </fieldset>                    
                 </div>
+
+                <div class="input-group mb-12">
+                    <label for="asset" class="input-required">Ativo</label>
+                    <select name="asset" id="asset" title="Selecione um ativo" required>
+                        <option value="">Selecione um ativo</option>
+                        <option value="ABEV3">ABEV3</option>
+                        <option value="VIVT3">VIVT3</option>
+                        <option value="RADL3">RADL3</option>
+                        <option value="KNRI11">KNRI11</option>
+                        <option value="MXRF11">MXRF11</option>
+                    </select>
+                    <p class="error-message">Selecione um ativo válido.</p>
+                </div>
+
+                <div class="input-group mb-12">
+                    <label for="date" class="input-required">Data da Ordem</label>
+                    <input type="date" id="date" name="date" title="Selecione a data da ordem" required>
+                    <p class="error-message">Data da ordem inválida.</p>
+                </div>
                 
                 <div class="input-group mb-12">
                     <label for="quantity" class="input-required">Quantidade</label>
-                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Ex: 100" required>
+                    <input type="number" id="quantity" name="quantity" min="1" placeholder="Ex: 100" title="Informe a quantidade" required>
+                    <p class="error-message">Quantidade inválida.</p>
                 </div>
                 
                 <div class="input-group mb-12">
                     <label for="unitPrice" class="input-required">Preço</label>
-                    <input type="number" id="unitPrice" name="price" step="0.01" min="0.01" placeholder="Ex: 30.00" required>
+                    <input type="number" id="unitPrice" name="price" step="0.01" min="0.01" placeholder="Ex: 30.00" title="Informe o preço" required>
+                    <p class="error-message">Preço inválido.</p>
                 </div>
 
                 <div class="input-group mb-12">
                     <label for="totalPrice" class="input-required">Custo Total</label>
-                    <input type="number" id="totalPrice" name="totalPrice" step="0.01" min="0.01" placeholder="Ex: 3000.00" required>
+                    <input type="number" id="totalPrice" name="totalPrice" step="0.01" min="0.01" placeholder="Ex: 3000.00" title="Informe o custo total" required>
+                    <p class="error-message">Custo total inválido.</p>
                 </div>
 
                 <div class="input-group mb-12">
