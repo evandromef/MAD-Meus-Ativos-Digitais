@@ -25,7 +25,8 @@
 .box-order-list,
 .box-asset-list,
 .box-earning-list,
-.box-event-list {
+.box-event-list,
+.box-user-assets-lg {
     display: block;
     min-width: 640px;
     max-width: 66%;
@@ -40,6 +41,7 @@
     height: fit-content;
 }
 
+.box-user-assets-mb,
 .box-mobile-action-bar {
     display: none;
 }
@@ -84,6 +86,22 @@ table tr {
     text-transform: uppercase;
 }
 
+.table-total-assets th {
+    text-align: start;
+    padding: 4px 8px 4px 8px;
+    font-size: .9em;
+}
+
+.box-user-total-assets-grow table th,
+.box-user-month-earnigs table th {
+    text-align: center;
+}
+.box-user-total-assets-grow table td,
+.box-user-month-earnigs table td {
+    text-align: end;
+}
+
+
 .row {
     display: table-row;
     width: unset;
@@ -104,7 +122,11 @@ table tr {
     display: none;
 }
 
-.row-lg:hover {
+.row-lg:hover,
+.table-total-assets tbody tr:hover,
+.box-user-total-assets-grow table tbody tr:hover,
+.box-user-month-earnigs table tbody tr:hover,
+.box-user-assets-lg table tbody tr:hover {
     background-color: #9cc2e552;
 }
 

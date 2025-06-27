@@ -8,6 +8,10 @@
     color: var(--color-alert);
 }
 
+.c-blue {
+    color: var(--color-confirm);
+}
+
 .mt-4 {
     margin-top: 4px;
 }
@@ -42,6 +46,22 @@
 
 .me-12 {
     margin-right: 12px;
+}
+
+.ms-12 {
+    margin-left: 12px;
+}
+
+.text-end {
+    text-align: end !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.no-indent {
+    text-indent: unset !important;
 }
 
 @media screen and (min-width: 1024px) {
