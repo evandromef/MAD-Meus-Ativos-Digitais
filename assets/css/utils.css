@@ -64,6 +64,15 @@
     text-indent: unset !important;
 }
 
+/* Highlights */
+.hg-green {
+    background-color: lightgreen;
+    padding: 4px;
+    border-radius: 8px;
+    color: darkgreen;
+    font-weight: bold;
+}
+
 @media screen and (min-width: 1024px) {
     .w-100-sm {
         width: unset;

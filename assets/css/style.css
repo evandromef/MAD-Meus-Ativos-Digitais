@@ -462,7 +462,7 @@ table .column-month {
 .box-user-total-assets-grow .column {
     display: table-cell;
     width: unset;
-    padding: 12px 16px;
+    padding: 12px 8px;
 }
 
 .box-details {
